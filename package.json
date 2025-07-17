@@ -1,12 +1,16 @@
 {
   "name": "jarvis-backend",
   "version": "1.0.0",
+  "description": "Backend simples para o Jarvis do Cainan Samuel",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
+  "keywords": [],
+  "author": "Cainan Samuel",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
   }
 }
