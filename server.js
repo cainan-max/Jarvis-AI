@@ -13,9 +13,9 @@ app.post('/pergunta', (req, res) => {
   const { pergunta } = req.body;
 
   let resposta = '';
-  if (pergunta.includes('quem te criou')) {
+  if (pergunta.toLowerCase().includes('quem te criou')) {
     resposta = 'Fui criado pelo programador Cainan Samuel.';
-  } else if (pergunta.includes('vida')) {
+  } else if (pergunta.toLowerCase().includes('vida')) {
     resposta = '42. Segundo Douglas Adams, claro.';
   } else {
     resposta = 'Ainda estou aprendendo, humano.';
