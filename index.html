@@ -2,22 +2,38 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🤖 Jarvis Futurista</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🤖 Jarvis Futurista</h1>
-  <div id="jarvis-messages"></div>
+  <main>
+    <h1>🤖 Jarvis Futurista</h1>
 
-  <textarea id="jarvis-input" placeholder="Digite aqui ou diga Jarvis..." rows="1"></textarea>
-  <button onclick="alternarTema()">🌓 Alternar Tema</button>
-  <button onclick="mostrarConhecimentoJarvis()">📚 Ver conhecimento</button>
-  <button onclick="limparMensagens()">🧹 Limpar Mensagens</button>
-  <textarea id="ensinar-massa" placeholder="Cole várias perguntas = respostas" rows="6"></textarea>
-  <button onclick="ensinarEmMassa()">📘 Ensinar em Massa</button>
-  <button id="botao-microfone" onclick="alternarEscuta()">🎙️ Ativar Microfone</button>
+    <section id="chat-section">
+      <div id="jarvis-messages" aria-live="polite"></div>
 
-  <audio id="som-notificacao" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d48c247f58.mp3" preload="auto"></audio>
+      <label for="jarvis-input" class="visually-hidden">Entrada de comando para o Jarvis</label>
+      <textarea id="jarvis-input" placeholder="Digite aqui ou diga Jarvis..." rows="1" aria-label="Entrada de comando para o Jarvis"></textarea>
+    </section>
+
+    <section id="controls">
+      <button onclick="alternarTema()">🌓 Alternar Tema</button>
+      <button onclick="mostrarConhecimentoJarvis()">📚 Ver conhecimento</button>
+      <button onclick="limparMensagens()">🧹 Limpar Mensagens</button>
+    </section>
+
+    <section id="ensinar-section">
+      <label for="ensinar-massa" class="visually-hidden">Ensinar em massa</label>
+      <textarea id="ensinar-massa" placeholder="Cole várias perguntas = respostas" rows="6" aria-label="Ensinar Jarvis em massa"></textarea>
+      <button onclick="ensinarEmMassa()">📘 Ensinar em Massa</button>
+    </section>
+
+    <section id="audio-section">
+      <button id="botao-microfone" onclick="alternarEscuta()">🎙️ Ativar Microfone</button>
+      <audio id="som-notificacao" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d48c247f58.mp3" preload="auto"></audio>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
