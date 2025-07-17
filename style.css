@@ -1,0 +1,21 @@
+body {
+  background: #121212;
+  color: #00ffcc;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  padding: 2em;
+}
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+input, button {
+  padding: 1em;
+  margin: 1em;
+  font-size: 1.2em;
+}
+#resposta {
+  margin-top: 2em;
+  font-size: 1.4em;
+  color: #0f0;
+}
