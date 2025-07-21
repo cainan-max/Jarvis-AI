@@ -1,4 +1,4 @@
-// Jarvis com armazenamento local, destaque de sintaxe e suporte a código
+
 
 let conhecimentoJarvis = JSON.parse(localStorage.getItem("conhecimentoJarvis")) || {};
 const jarvisMessages = document.getElementById("jarvis-messages");
@@ -17,7 +17,7 @@ function adicionarMensagem(remetente, texto) {
 
   if (ehCodigo) {
     div.innerHTML = `<strong>${remetente}:</strong><pre><code class="language-javascript">${escapeHtml(texto)}</code></pre>`;
-    // Se quiser usar highlight.js
+ 
     if (window.hljs) hljs.highlightAll();
   } else {
     div.innerHTML = `<strong>${remetente}:</strong> ${texto}`;
