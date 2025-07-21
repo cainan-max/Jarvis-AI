@@ -1,4 +1,4 @@
-// Jarvis com armazenamento local (sem backend)
+// Jarvis com armazenamento local, destaque de sintaxe e suporte a código
 
 let conhecimentoJarvis = JSON.parse(localStorage.getItem("conhecimentoJarvis")) || {};
 const jarvisMessages = document.getElementById("jarvis-messages");
@@ -11,9 +11,27 @@ function salvarLocalmente(pergunta, resposta) {
 
 function adicionarMensagem(remetente, texto) {
   const div = document.createElement("div");
-  div.innerHTML = `<strong>${remetente}:</strong> ${texto}`;
+
+  // Detectar se é código (HTML, JS, Python)
+  const ehCodigo = /<[^>]+>|function|=>|console|def |import |let |const |var /.test(texto);
+
+  if (ehCodigo) {
+    div.innerHTML = `<strong>${remetente}:</strong><pre><code class="language-javascript">${escapeHtml(texto)}</code></pre>`;
+    // Se quiser usar highlight.js
+    if (window.hljs) hljs.highlightAll();
+  } else {
+    div.innerHTML = `<strong>${remetente}:</strong> ${texto}`;
+  }
+
   jarvisMessages.appendChild(div);
   jarvisMessages.scrollTop = jarvisMessages.scrollHeight;
+}
+
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
 }
 
 function falar(texto) {
