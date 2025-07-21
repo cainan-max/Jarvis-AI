@@ -156,3 +156,33 @@ document.getElementById("jarvis-input").addEventListener("keydown", e => {
     }
   }
 });
+<!-- Botão para ensinar em massa -->
+<button id="botao-ensinar-massa">Ensinar várias perguntas</button>
+
+<script>
+  // Função para ensinar várias perguntas e respostas de uma vez
+  async function ensinarEmMassa() {
+    const texto = prompt("Cole aqui várias perguntas e respostas, cada uma no formato:\npergunta = resposta\n\nExemplo:\nqual é a capital do brasil = Brasília\nquem descobriu o brasil = Pedro Álvares Cabral");
+    if (!texto) return;
+
+    const linhas = texto.split('\n');
+    let contador = 0;
+
+    for (let linha of linhas) {
+      if (linha.includes('=')) {
+        const partes = linha.split('=');
+        if (partes.length === 2) {
+          const pergunta = partes[0].trim();
+          const resposta = partes[1].trim();
+          salvarLocalmente(pergunta, resposta);
+          contador++;
+        }
+      }
+    }
+
+    responderJarvis(`✅ Aprendi ${contador} novos conhecimentos!`);
+  }
+
+  // Adicionar evento ao botão
+  document.getElementById("botao-ensinar-massa").addEventListener("click", ensinarEmMassa);
+</script>
